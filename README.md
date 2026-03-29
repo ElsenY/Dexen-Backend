@@ -20,11 +20,20 @@ $ npm install
 ### Run the App
 The application consists of two separate processes:
 
+1. Fill create the value on the .env file (can copy from .env.example)
+2. run
+
 ```bash
-# 1. Start the API Gateway & WebSockets
+# 1. migrate main DB
+$ npm run prisma:migrate
+
+# 2. migrate log DB
+$ npm run prisma:migrate:log
+
+# 3. Start the API Gateway & WebSockets
 $ npm run start:dev
 
-# 2. Start the Kafka Consumer (separate terminal)
+# 4. Start the Kafka Consumer (separate terminal)
 $ npm run start:consumer:dev
 ```
 
