@@ -1,0 +1,21 @@
+generator client {
+  provider        = "prisma-client"
+  output          = "../../dist/generated/prisma_log"
+  moduleFormat = "cjs"
+}
+
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// Audit row when a user profile is updated in the main app database.
+model UserUpdateLog {
+  id            String   @id @default(uuid())
+  userId        String   @map("user_id")
+  beforeUpdate  Json     @map("before_update")
+  afterUpdate   Json     @map("after_update")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("user_update_logs")
+}

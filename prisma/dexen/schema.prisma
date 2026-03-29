@@ -1,0 +1,37 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../../dist/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String       @id @default(uuid())
+  email        String       @unique
+  image        Bytes?
+  phone_number String
+  passwordHash String       @map("password_hash")
+  createdAt    DateTime     @default(now()) @map("created_at")
+  updatedAt    DateTime     @updatedAt @map("updated_at")
+  attendances  Attendance[]
+
+  @@map("users")
+}
+
+model Attendance {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  date      DateTime @db.Date
+  checkIn   DateTime @default(now()) @map("check_in")
+  checkOut  DateTime @default(now()) @map("check_out")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@map("attendances")
+}
