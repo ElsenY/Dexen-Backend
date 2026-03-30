@@ -14,7 +14,7 @@ This is the backend service for Dexen, built with [NestJS](https://nestjs.com/).
 
 ### Installation
 ```bash
-$ npm install
+npm install
 ```
 
 ### Run the App
