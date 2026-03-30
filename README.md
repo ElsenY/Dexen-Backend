@@ -13,43 +13,43 @@ This is the backend service for Dexen, built with [NestJS](https://nestjs.com/).
 - Kafka Broker (running on `localhost:9092` by default)
 
 ### Installation
+
+### 1. Install dependencies
 ```bash
 npm install
 ```
 
-### Run the App
-The application consists of two separate processes:
-
-1. Fill create the value on the .env file (can copy from .env.example)
-2. run
-
-
-### 1. migrate main DB
+### 2. migrate main DB
 ```bash
 npm run prisma:migrate
 ```
 
-### 2. migrate log DB
+### 3. migrate log DB
 ```bash
 npm run prisma:migrate:log
 ```
 
-### 3. generate prisma file for dexen DB
+### 4. generate prisma file for dexen DB
 ```bash
 npm run prisma:generate
 ```
 
-### 4. generate prisma file for dexen_log DB
+### 5. generate prisma file for dexen_log DB
 ```bash
 npm run prisma:generate:log
 ```
 
-### 5. Start the API Gateway & WebSockets
+### Run the App
+
+1. Fill create the value on the .env file (can copy from .env.example)
+2. run
+
+### 1. Start the API Gateway & WebSockets
 ```bash
 npm run start:dev
 ```
 
-### 6. Start the Kafka Consumer (separate terminal)
+### 2. Start the Kafka Consumer (separate terminal)
 ```bash
 npm run start:consumer:dev
 ```
