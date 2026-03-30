@@ -17,7 +17,7 @@ CREATE TABLE "attendances" (
     "user_id" TEXT NOT NULL,
     "date" DATE NOT NULL,
     "check_in" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "check_out" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "check_out" TIMESTAMP(3),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
@@ -26,6 +26,9 @@ CREATE TABLE "attendances" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "attendances_user_id_date_key" ON "attendances"("user_id", "date");
 
 -- AddForeignKey
 ALTER TABLE "attendances" ADD CONSTRAINT "attendances_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
