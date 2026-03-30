@@ -45,12 +45,12 @@ export class AuthService {
       where: { email: dto.email.toLowerCase() },
     });
     if (!user) {
-      throw new UnauthorizedException('Invalid email or password');
+      throw new UnauthorizedException('Invalid email or password, go to /admin route to create user');
     }
 
     const ok = await bcrypt.compare(dto.password, user.passwordHash);
     if (!ok) {
-      throw new UnauthorizedException('Invalid email or password');
+      throw new UnauthorizedException('Invalid email or password, go to /admin route to create user');
     }
 
     return this.buildAuthResponse(user.id, user.email);
