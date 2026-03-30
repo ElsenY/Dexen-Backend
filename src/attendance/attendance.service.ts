@@ -23,7 +23,6 @@ export class AttendanceService {
             userId,
             date,
             checkIn: now,
-            checkOut: now,
           },
         }),
       );
@@ -111,7 +110,7 @@ export class AttendanceService {
     userId: string;
     date: Date;
     checkIn: Date;
-    checkOut: Date;
+    checkOut: Date | null;
     createdAt: Date;
     updatedAt: Date;
   }) {
@@ -120,7 +119,7 @@ export class AttendanceService {
       user_id: row.userId,
       date: row.date.toISOString().slice(0, 10),
       check_in: row.checkIn.toISOString(),
-      check_out: row.checkOut.toISOString(),
+      check_out: row.checkOut ? row.checkOut.toISOString() : null,
       created_at: row.createdAt.toISOString(),
       updated_at: row.updatedAt.toISOString(),
     };

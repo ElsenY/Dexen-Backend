@@ -1,4 +1,4 @@
-import { IsEmail, IsNumber, IsPhoneNumber, IsString, MinLength } from 'class-validator';
+import { IsEmail, Matches, IsString, MinLength } from 'class-validator';
 
 export class RegisterDto {
   @IsEmail()
@@ -8,6 +8,6 @@ export class RegisterDto {
   @MinLength(8)
   password: string;
 
-  @IsPhoneNumber()
+  @Matches(/^\+?\d{8,15}$/)
   phone_number: number;
 }
