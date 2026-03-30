@@ -24,32 +24,32 @@ The application consists of two separate processes:
 2. run
 
 
-# 1. migrate main DB
+### 1. migrate main DB
 ```bash
 $ npm run prisma:migrate
 ```
 
-# 2. migrate log DB
+### 2. migrate log DB
 ```bash
 $ npm run prisma:migrate:log
 ```
 
-# 3. generate prisma file for dexen DB
+### 3. generate prisma file for dexen DB
 ```bash
 $ npm run prisma:generate
 ```
 
-# 4. generate prisma file for dexen_log DB
+### 4. generate prisma file for dexen_log DB
 ```bash
 $ npm run prisma:generate:log
 ```
 
-# 5. Start the API Gateway & WebSockets
+### 5. Start the API Gateway & WebSockets
 ```bash
 $ npm run start:dev
 ```
 
-# 6. Start the Kafka Consumer (separate terminal)
+### 6. Start the Kafka Consumer (separate terminal)
 ```bash
 $ npm run start:consumer:dev
 ```
