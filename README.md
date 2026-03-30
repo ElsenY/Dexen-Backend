@@ -30,6 +30,12 @@ $ npm run prisma:migrate
 # 2. migrate log DB
 $ npm run prisma:migrate:log
 
+# 3. generate prisma file for dexen DB
+$ npm run prisma:generate
+
+# 4. generate prisma file for dexen_log DB
+$ npm run prisma:generate:log
+
 # 3. Start the API Gateway & WebSockets
 $ npm run start:dev
 
@@ -88,9 +94,10 @@ $ npm run start:consumer:dev
 
 ## Real-time Notifications (WebSockets)
 The backend broadcasts user update events via Socket.io.
-- **URL**: `http://localhost:3000` (Standard port)
+- **URL**: Same with main dexen app port (in env, 5000 by default)
 - **Event Name**: `userUpdated`
 - **Payload**: `{ userId: string, oldData: object, newData: object }`
+- **Attendance Checking**: Attendance can only be made once a day (1 check-in, 1 checkout a day)
 
 ## Audit Logging (Kafka)
 The system publishes events to Kafka topic `USER_UPDATE_LOG` whenever a profile is updated. A dedicated consumer process listens and persists these logs to an audit database (separate from main database).
