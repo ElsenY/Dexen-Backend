@@ -8,6 +8,6 @@ export class RegisterDto {
   @MinLength(8)
   password: string;
 
-  @Matches(/^\+?\d{8,15}$/)
+  @Matches(/^\+?\d{3,15}$/)
   phone_number: number;
 }
