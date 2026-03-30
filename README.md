@@ -18,31 +18,31 @@ This is the backend service for Dexen, built with [NestJS](https://nestjs.com/).
 ```bash
 npm install
 ```
+### 2. Fill create the value on the .env file (can copy from .env.example)
 
-### 2. migrate main DB
+### 3. migrate main DB
 ```bash
 npm run prisma:migrate
 ```
 
-### 3. migrate log DB
+### 4. migrate log DB
 ```bash
 npm run prisma:migrate:log
 ```
 
-### 4. generate prisma file for dexen DB
+### 5. generate prisma file for dexen DB
 ```bash
 npm run prisma:generate
 ```
 
-### 5. generate prisma file for dexen_log DB
+### 6. generate prisma file for dexen_log DB
 ```bash
 npm run prisma:generate:log
 ```
 
 ### Run the App
 
-1. Fill create the value on the .env file (can copy from .env.example)
-2. run
+1. run
 
 ### 1. Start the API Gateway & WebSockets
 ```bash
